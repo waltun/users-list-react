@@ -1,8 +1,11 @@
 import React from "react";
+import AddUser from "./AddUser";
 
 function Users() {
   return (
     <div className="mt-6">
+      <AddUser />
+
       <table className="min-w-full divide-y divide-gray-200">
         <thead className="bg-gray-50">
           <tr>
@@ -62,10 +65,9 @@ function Users() {
               <button className="px-4 py-1 rounded-md bg-indigo-500 text-white hover:bg-indigo-600 text-sm">
                 ویرایش
               </button>
-                <button className="px-4 py-1 rounded-md bg-red-500 text-white hover:bg-red-600 text-sm">
-                  حذف
-                </button>
-
+              <button className="px-4 py-1 rounded-md bg-red-500 text-white hover:bg-red-600 text-sm">
+                حذف
+              </button>
             </td>
           </tr>
         </tbody>
