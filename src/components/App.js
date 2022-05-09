@@ -3,7 +3,7 @@ import Users from "./Users";
 
 function App() {
   return (
-    <div className="max-w-4xl mx-auto">
+    <div className="max-w-4xl mx-auto font-IRANSans">
       <Users />
     </div>
   );

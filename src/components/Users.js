@@ -4,7 +4,7 @@ function Users() {
     return (
         <div>
             <p className="text-center font-bold">
-                Users list
+                لیست کاربران
             </p>
         </div>
     )
