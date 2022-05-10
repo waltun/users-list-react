@@ -2,6 +2,7 @@ import React, { Fragment, useRef, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { PlusIcon, UserAddIcon } from "@heroicons/react/outline";
 import { v4 as uuid } from "uuid";
+import Swal from "sweetalert2";
 
 function AddUser() {
   const [open, setOpen] = useState(false);
@@ -33,6 +34,13 @@ function AddUser() {
     event.preventDefault();
 
     localStorage.setItem("data", JSON.stringify(state));
+
+    Swal.fire({
+      title: 'Error!',
+      text: 'Do you want to continue',
+      icon: 'error',
+      confirmButtonText: 'Cool'
+    })
   };
 
   return (
