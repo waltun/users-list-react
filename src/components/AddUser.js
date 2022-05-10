@@ -33,14 +33,27 @@ function AddUser() {
   const handleFormSubmit = (event) => {
     event.preventDefault();
 
+    if (localStorage.getItem("data") == null) {
+      localStorage.setItem("data", "[]");
+    }
+
+    let oldData = JSON.parse(localStorage.getItem("data"));
+    oldData.push(localStorage.setItem("data", JSON.stringify(state)));
+
     localStorage.setItem("data", JSON.stringify(state));
 
+    setOpen(false);
+
     Swal.fire({
-      title: 'Error!',
-      text: 'Do you want to continue',
-      icon: 'error',
-      confirmButtonText: 'Cool'
-    })
+      title: "ثبت موفق",
+      text: "کاربر مورد نظر با موفقیت ثبت شد",
+      icon: "success",
+      confirmButtonText: "خب!",
+      timer: 2000,
+      customClass: {
+        container: "font-IRANSans",
+      },
+    });
   };
 
   return (
