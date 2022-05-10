@@ -7,12 +7,23 @@ function AddUser() {
   const cancelButtonRef = useRef(null);
 
   //Form states
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
-  const [nation, setNation] = useState("");
-  const [gender, setGender] = useState("male");
-  const [type, setType] = useState("normal");
+  const [state, setState] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    nation: "",
+    gender: "male",
+    type: "normal",
+  });
+
+  const handleInputChanges = (event) => {
+    const name = event.target.name;
+    const value = event.target.value;
+    setState({
+      ...state,
+      [name]: value,
+    });
+  };
 
   return (
     <div className="my-4">
@@ -91,8 +102,8 @@ function AddUser() {
                           <input
                             type="text"
                             id="inputName"
-                            value={name}
-                            onChange={(e) => setName(e.target.value)}
+                            onChange={handleInputChanges}
+                            name="name"
                             className="w-full bg-white px-4 py-2 text-sm border border-gray-400 rounded-md"
                           />
                         </div>
@@ -105,9 +116,9 @@ function AddUser() {
                           </label>
                           <input
                             type="email"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
+                            onChange={handleInputChanges}
                             id="inputEmail"
+                            name="email"
                             className="w-full bg-white px-4 py-2 text-sm border border-gray-400 rounded-md"
                           />
                         </div>
@@ -119,10 +130,10 @@ function AddUser() {
                             شماره تماس
                           </label>
                           <input
-                            type="text"
-                            value={phone}
-                            onChange={(e) => setPhone(e.target.value)}
+                            type="number"
+                            onChange={handleInputChanges}
                             id="inputPhone"
+                            name="phone"
                             className="w-full bg-white px-4 py-2 text-sm border border-gray-400 rounded-md"
                           />
                         </div>
@@ -134,10 +145,10 @@ function AddUser() {
                             کد ملی
                           </label>
                           <input
-                            type="text"
-                            value={nation}
-                            onChange={(e) => setNation(e.target.value)}
+                            type="number"
+                            onChange={handleInputChanges}
                             id="inputNation"
+                            name="nation"
                             className="w-full bg-white px-4 py-2 text-sm border border-gray-400 rounded-md"
                           />
                         </div>
@@ -151,7 +162,8 @@ function AddUser() {
                           <select
                             className="w-full bg-white px-4 py-2 text-sm border border-gray-400 rounded-md"
                             id="inputGender"
-                            onChange={(e) => setGender(e.target.value)}
+                            onChange={handleInputChanges}
+                            name="gender"
                           >
                             <option value="male">مرد</option>
                             <option value="female">زن</option>
@@ -167,7 +179,8 @@ function AddUser() {
                           <select
                             className="w-full bg-white px-4 py-2 text-sm border border-gray-400 rounded-md"
                             id="inputType"
-                            onChange={(e) => setType(e.target.value)}
+                            onChange={handleInputChanges}
+                            name="type"
                           >
                             <option value="admin">مدیریت</option>
                             <option value="normal">معمولی</option>
