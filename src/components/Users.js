@@ -1,11 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import AddUser from "./AddUser";
 
 function Users() {
   return (
     <div className="mt-6">
       <AddUser />
-
       <table className="min-w-full divide-y divide-gray-200">
         <thead className="bg-gray-50">
           <tr>

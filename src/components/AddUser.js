@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useRef, useState } from "react";
+import React, { Fragment, useRef, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { PlusIcon, UserAddIcon } from "@heroicons/react/outline";
 
@@ -6,7 +6,7 @@ function AddUser() {
   const [open, setOpen] = useState(false);
   const cancelButtonRef = useRef(null);
 
-  //Form states
+  //Define state for inputs
   const [state, setState] = useState({
     name: "",
     email: "",
@@ -16,6 +16,7 @@ function AddUser() {
     type: "normal",
   });
 
+  //Get value from inputs and put them to state using useState
   const handleInputChanges = (event) => {
     const name = event.target.name;
     const value = event.target.value;
@@ -23,6 +24,13 @@ function AddUser() {
       ...state,
       [name]: value,
     });
+  };
+
+  //Store values in localStorage when form submited
+  const handleFormSubmit = (event) => {
+    event.preventDefault();
+
+    localStorage.setItem("data", JSON.stringify(state));
   };
 
   return (
@@ -73,7 +81,7 @@ function AddUser() {
                 leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
               >
                 <Dialog.Panel className="relative inline-block align-bottom bg-white rounded-lg text-right overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-2xl w-full">
-                  <form>
+                  <form onSubmit={handleFormSubmit}>
                     <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
                       <div className="sm:flex sm:items-center">
                         <div className="mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
@@ -95,7 +103,7 @@ function AddUser() {
                         <div className="mb-4 sm:mb-0">
                           <label
                             className="text-sm font-bold mb-2 block"
-                            for="inputName"
+                            htmlFor="inputName"
                           >
                             نام
                           </label>
@@ -110,7 +118,7 @@ function AddUser() {
                         <div className="mb-4 sm:mb-0">
                           <label
                             className="text-sm font-bold mb-2 block"
-                            for="inputEmail"
+                            htmlFor="inputEmail"
                           >
                             ایمیل
                           </label>
@@ -125,7 +133,7 @@ function AddUser() {
                         <div className="mb-4 sm:mb-0">
                           <label
                             className="text-sm font-bold mb-2 block"
-                            for="inputPhone"
+                            htmlFor="inputPhone"
                           >
                             شماره تماس
                           </label>
@@ -140,7 +148,7 @@ function AddUser() {
                         <div className="mb-4 sm:mb-0">
                           <label
                             className="text-sm font-bold mb-2 block"
-                            for="inputNation"
+                            htmlFor="inputNation"
                           >
                             کد ملی
                           </label>
@@ -155,7 +163,7 @@ function AddUser() {
                         <div className="mb-4 sm:mb-0">
                           <label
                             className="text-sm font-bold mb-2 block"
-                            for="inputGender"
+                            htmlFor="inputGender"
                           >
                             جنسیت
                           </label>
@@ -172,7 +180,7 @@ function AddUser() {
                         <div className="mb-4 sm:mb-0">
                           <label
                             className="text-sm font-bold mb-2 block"
-                            for="inputType"
+                            htmlFor="inputType"
                           >
                             نوع کاربر
                           </label>
