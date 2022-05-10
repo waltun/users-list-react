@@ -1,6 +1,7 @@
 import React, { Fragment, useRef, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { PlusIcon, UserAddIcon } from "@heroicons/react/outline";
+import { v4 as uuid } from "uuid";
 
 function AddUser() {
   const [open, setOpen] = useState(false);
@@ -8,6 +9,7 @@ function AddUser() {
 
   //Define state for inputs
   const [state, setState] = useState({
+    id: uuid().slice(0, 8),
     name: "",
     email: "",
     phone: "",
