@@ -1,7 +1,7 @@
 import React from "react";
 
 function UserForm({ users, setUsers }) {
-  const handleForm = (event) => {
+  const handleInputs = (event) => {
     let name = event.target.name;
     let value = event.target.value;
 
@@ -18,7 +18,7 @@ function UserForm({ users, setUsers }) {
           id="inputName"
           className="input"
           name="name"
-          onChange={handleForm}
+          onChange={handleInputs}
         />
       </div>
 
@@ -30,7 +30,7 @@ function UserForm({ users, setUsers }) {
           id="inputEmail"
           className="input"
           name="email"
-          onChange={handleForm}
+          onChange={handleInputs}
         />
       </div>
 
@@ -42,7 +42,7 @@ function UserForm({ users, setUsers }) {
           id="inputPhone"
           className="input"
           name="phone"
-          onChange={handleForm}
+          onChange={handleInputs}
         />
       </div>
 
@@ -50,7 +50,7 @@ function UserForm({ users, setUsers }) {
         <label htmlFor="inputPhone" className="form-label">
           نوع کاربر
         </label>
-        <select className="input" name="type" onChange={handleForm}>
+        <select className="input" name="type" onChange={handleInputs}>
           <option value="normal">کاربر معمولی</option>
           <option value="admin">کاربر ادمین</option>
         </select>

@@ -4,6 +4,16 @@ import { PlusIcon } from "@heroicons/react/outline";
 import UserForm from "./userForm";
 
 function Modal({ modal, setModal, users, setUsers }) {
+  const handleForm = (event) => {
+    event.preventDefault();
+
+    setUsers((prevState) => {
+      return [...prevState, users];
+    });
+
+    setModal(false);
+  };
+
   return (
     <section>
       <Transition.Root show={modal} as={Fragment}>
@@ -42,7 +52,7 @@ function Modal({ modal, setModal, users, setUsers }) {
                 leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
               >
                 <Dialog.Panel className="relative inline-block align-bottom bg-white rounded-lg text-right overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-2xl w-full">
-                  <form>
+                  <form onSubmit={handleForm}>
                     <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
                       <div className="sm:flex sm:items-start">
                         <div className="mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
