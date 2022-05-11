@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 
-function UserForm({ users, setUsers }) {
+function UserForm({ user, setUser }) {
   const handleInputs = (event) => {
     let name = event.target.name;
     let value = event.target.value;
 
-    setUsers({ ...users, [name]: value });
+    setUser({ ...user, [name]: value });
   };
 
   return (

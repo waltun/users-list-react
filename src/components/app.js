@@ -7,6 +7,7 @@ import Users from "./users";
 
 function App() {
   const [modal, setModal] = useState(false);
+  // const [users, setUsers] = useState([]);
   const [users, setUsers] = useState([]);
 
   return (
@@ -25,7 +26,7 @@ function App() {
       />
 
       {/* users table (show users) */}
-      <Users />
+      <Users users={users} />
     </div>
   );
 }

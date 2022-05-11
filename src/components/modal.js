@@ -1,14 +1,22 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { PlusIcon } from "@heroicons/react/outline";
 import UserForm from "./userForm";
 
-function Modal({ modal, setModal, users, setUsers }) {
+function Modal({ modal, setModal, setUsers }) {
+  const [user, setUser] = useState({
+    id: Date.now(),
+    name: "",
+    email: "",
+    phone: "",
+    type: "normal",
+  });
+
   const handleForm = (event) => {
     event.preventDefault();
 
     setUsers((prevState) => {
-      return [...prevState, users];
+      return [...prevState, user];
     });
 
     setModal(false);
@@ -72,7 +80,7 @@ function Modal({ modal, setModal, users, setUsers }) {
                       </div>
                       <div className="mt-4">
                         {/* Show form to add user */}
-                        <UserForm users={users} setUsers={setUsers} />
+                        <UserForm setUser={setUser} user={user} />
                       </div>
                     </div>
                     <div className="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse space-x-2 space-y-2 sm:space-y-0">
