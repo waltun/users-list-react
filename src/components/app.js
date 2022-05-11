@@ -2,20 +2,16 @@ import React, { Fragment, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { PlusIcon } from "@heroicons/react/outline";
 import Header from "./header";
+import AddUser from "./addUser";
 
 function App() {
   const [modal, setModal] = useState(false);
 
   return (
     <div className="max-w-3xl mx-auto font-IRANSans">
-
       <Header />
-      
-      <section className="flex justify-end">
-        <button className="btn-success" onClick={() => setModal(true)}>
-          افزودن کاربر جدید
-        </button>
-      </section>
+
+      <AddUser modal={setModal} />
 
       <section>
         <Transition.Root show={modal} as={Fragment}>
