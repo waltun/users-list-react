@@ -11,7 +11,9 @@ function Users({ users }) {
             <TableHeader />
           </thead>
           <tbody className="bg-white divide-y divide-gray-200">
-            <UserItems users={users} />
+            {users.map((item, index) => (
+              <UserItems item={item} key={index} index={index} />
+            ))}
           </tbody>
         </table>
       ) : (

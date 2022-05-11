@@ -5,7 +5,6 @@ import UserForm from "./userForm";
 
 function Modal({ modal, setModal, setUsers }) {
   const [user, setUser] = useState({
-    id: Date.now(),
     name: "",
     email: "",
     phone: "",
