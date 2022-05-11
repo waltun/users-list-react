@@ -15,8 +15,8 @@ function UserItems({ item, index }) {
       <td className="px-4 py-2 whitespace-nowrap text-center text-gray-700">
         <p className="text-sm">{item.phone}</p>
       </td>
-      <td className="px-4 py-2 whitespace-nowrap text-center text-gray-700">
-        <p className="text-sm">1401/02/21</p>
+      <td className="px-4 py-2 whitespace-nowrap text-center text-gray-700" dir="ltr">
+        <p className="text-sm">{item.date}</p>
       </td>
       <td className="px-4 py-2 whitespace-nowrap text-center text-gray-700">
         <p className="text-sm">

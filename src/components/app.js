@@ -7,27 +7,27 @@ import Users from "./users";
 
 function App() {
   const [modal, setModal] = useState(false);
-  // const [users, setUsers] = useState([]);
   const [users, setUsers] = useState([]);
 
   return (
-    <div className="max-w-3xl mx-auto font-IRANSans">
+    <>
       <Header />
+      <div className="max-w-4xl mx-auto font-IRANSans">
+        {/* Button for open modal add user */}
+        <AddUser modal={setModal} />
 
-      {/* Button for open modal add user */}
-      <AddUser modal={setModal} />
+        {/* open modal (user form) */}
+        <Modal
+          modal={modal}
+          setModal={setModal}
+          users={users}
+          setUsers={setUsers}
+        />
 
-      {/* open modal (user form) */}
-      <Modal
-        modal={modal}
-        setModal={setModal}
-        users={users}
-        setUsers={setUsers}
-      />
-
-      {/* users table (show users) */}
-      <Users users={users} />
-    </div>
+        {/* users table (show users) */}
+        <Users users={users} />
+      </div>
+    </>
   );
 }
 

@@ -4,11 +4,17 @@ import { PlusIcon } from "@heroicons/react/outline";
 import UserForm from "./userForm";
 
 function Modal({ modal, setModal, setUsers }) {
+  const date = new Date();
+  const year = date.getFullYear();
+  const month = date.getMonth() + 1;
+  const day = date.getDate();
+
   const [user, setUser] = useState({
     name: "",
     email: "",
     phone: "",
     type: "normal",
+    date: year + " / " + month + " / " + day,
   });
 
   const handleForm = (event) => {
