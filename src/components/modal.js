@@ -3,14 +3,14 @@ import { Dialog, Transition } from "@headlessui/react";
 import { PlusIcon } from "@heroicons/react/outline";
 import UserForm from "./userForm";
 
-function Modal(props) {
+function Modal({ modal, setModal, users, setUsers }) {
   return (
     <section>
-      <Transition.Root show={props.modal} as={Fragment}>
+      <Transition.Root show={modal} as={Fragment}>
         <Dialog
           as="div"
           className="relative z-10 font-IRANSans"
-          onClose={props.setModal}
+          onClose={setModal}
         >
           <Transition.Child
             as={Fragment}
@@ -61,21 +61,22 @@ function Modal(props) {
                         </div>
                       </div>
                       <div className="mt-4">
-                        <UserForm />
+                        {/* Show form to add user */}
+                        <UserForm users={users} setUsers={setUsers} />
                       </div>
                     </div>
                     <div className="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse space-x-2 space-y-2 sm:space-y-0">
                       <button
                         type="submit"
                         className="btn-success py-2 w-full sm:w-auto"
-                        onClick={() => props.setModal(false)}
+                        onClick={() => setModal(false)}
                       >
                         ثبت اطلاعات
                       </button>
                       <button
                         type="button"
                         className="btn-cancel py-2 w-full sm:w-auto"
-                        onClick={() => props.setModal(false)}
+                        onClick={() => setModal(false)}
                       >
                         انصراف
                       </button>
