@@ -1,17 +1,16 @@
 import React, { Fragment, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { PlusIcon } from "@heroicons/react/outline";
+import Header from "./header";
 
 function App() {
   const [modal, setModal] = useState(false);
 
   return (
     <div className="max-w-3xl mx-auto font-IRANSans">
-      <header className="bg-gray-200 rounded-md py-2 my-4">
-        <div>
-          <p className="text-center text-xl font-bold">پروژه لیست کاربران</p>
-        </div>
-      </header>
+
+      <Header />
+      
       <section className="flex justify-end">
         <button className="btn-success" onClick={() => setModal(true)}>
           افزودن کاربر جدید
