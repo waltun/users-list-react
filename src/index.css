@@ -2,4 +2,21 @@
 
 @tailwind base;
 @tailwind components;
+
+.input {
+  @apply w-full bg-white border border-gray-300 rounded-md px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 focus:ring-opacity-70;
+}
+
+.btn-success {
+  @apply text-sm text-white bg-green-500 hover:bg-green-600 py-1 px-4 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500;
+}
+
+.btn-cancel {
+  @apply text-sm text-white bg-red-500 hover:bg-red-600 py-1 px-4 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500;
+}
+
+.form-label {
+  @apply block mb-2 text-sm text-black font-bold;
+}
+
 @tailwind utilities;
