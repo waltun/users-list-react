@@ -2,7 +2,7 @@ import React from "react";
 import DeleteUser from "./deleteUser";
 import EditUser from "./editUser";
 
-function UserItems({ item, index }) {
+function UserItems({ item, index, setUsers, users }) {
   return (
     <tr className="hover:bg-gray-100">
       <td className="px-4 py-2 whitespace-nowrap text-center text-gray-700">
@@ -31,7 +31,7 @@ function UserItems({ item, index }) {
       <td className="px-4 py-2 whitespace-nowrap space-x-2 space-x-reverse">
         <EditUser />
 
-        <DeleteUser />
+        <DeleteUser index={index} setUser={setUsers} user={users} />
       </td>
     </tr>
   );

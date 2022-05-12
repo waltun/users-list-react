@@ -2,7 +2,7 @@ import React from "react";
 import TableHeader from "./tableHeader";
 import UserItems from "./userItems";
 
-function Users({ users }) {
+function Users({ users, setUsers }) {
   return (
     <main className="my-4">
       {users.length ? (
@@ -12,7 +12,13 @@ function Users({ users }) {
           </thead>
           <tbody className="bg-white divide-y divide-gray-200">
             {users.map((item, index) => (
-              <UserItems item={item} key={index} index={index} />
+              <UserItems
+                item={item}
+                key={index}
+                index={index}
+                setUsers={setUsers}
+                users={users}
+              />
             ))}
           </tbody>
         </table>

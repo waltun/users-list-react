@@ -25,7 +25,7 @@ function App() {
         />
 
         {/* users table (show users) */}
-        <Users users={users} />
+        <Users users={users} setUsers={setUsers} />
       </div>
     </>
   );
