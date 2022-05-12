@@ -7,7 +7,12 @@ function UserItems({ item, index, setUsers, users, edit, setEdit }) {
   return (
     <>
       {edit ? (
-        <EditUserForm item={item} index={index} />
+        <EditUserForm
+          item={item}
+          index={index}
+          users={users}
+          setUsers={setUsers}
+        />
       ) : (
         <tr className="hover:bg-gray-100">
           <td className="px-4 py-2 whitespace-nowrap text-center text-gray-700">
