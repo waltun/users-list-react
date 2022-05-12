@@ -1,4 +1,5 @@
 import React from "react";
+import DeleteUser from "./deleteUser";
 import EditUser from "./editUser";
 
 function UserItems({ item, index }) {
@@ -29,9 +30,8 @@ function UserItems({ item, index }) {
       </td>
       <td className="px-4 py-2 whitespace-nowrap space-x-2 space-x-reverse">
         <EditUser />
-        <button className="bg-red-500 hover:bg-red-600 px-4 py-1 rounded-md text-white text-sm">
-          حذف
-        </button>
+
+        <DeleteUser />
       </td>
     </tr>
   );
