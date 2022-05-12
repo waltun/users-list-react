@@ -1,8 +1,11 @@
 import React from "react";
 
-function EditUser() {
+function EditUser({ setEdit }) {
   return (
-    <button className="bg-indigo-500 hover:bg-indigo-600 px-4 py-1 rounded-md text-white text-sm">
+    <button
+      className="btn-edit"
+      onClick={() => setEdit(true)}
+    >
       ویرایش
     </button>
   );

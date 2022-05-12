@@ -8,6 +8,7 @@ import Users from "./users";
 function App() {
   const [modal, setModal] = useState(false);
   const [users, setUsers] = useState([]);
+  const [edit, setEdit] = useState(false);
 
   return (
     <>
@@ -25,7 +26,12 @@ function App() {
         />
 
         {/* users table (show users) */}
-        <Users users={users} setUsers={setUsers} />
+        <Users
+          users={users}
+          setUsers={setUsers}
+          edit={edit}
+          setEdit={setEdit}
+        />
       </div>
     </>
   );

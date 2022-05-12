@@ -9,7 +9,7 @@ function DeleteUser({ index, user, setUser }) {
 
   return (
     <button
-      className="bg-red-500 hover:bg-red-600 px-4 py-1 rounded-md text-white text-sm"
+      className="btn-cancel"
       onClick={() => handleDelete(index)}
     >
       حذف

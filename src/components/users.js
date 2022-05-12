@@ -2,7 +2,7 @@ import React from "react";
 import TableHeader from "./tableHeader";
 import UserItems from "./userItems";
 
-function Users({ users, setUsers }) {
+function Users({ users, setUsers, edit, setEdit }) {
   return (
     <main className="my-4">
       {users.length ? (
@@ -18,6 +18,8 @@ function Users({ users, setUsers }) {
                 index={index}
                 setUsers={setUsers}
                 users={users}
+                edit={edit}
+                setEdit={setEdit}
               />
             ))}
           </tbody>
