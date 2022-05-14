@@ -1,17 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import DeleteUser from "./deleteUser";
 import EditUser from "./editUser";
 import EditUserForm from "./editUserForm";
 
-function UserItems({ item, index, setUsers, users, edit, setEdit }) {
+function UserItems({ item, index, setUsers, users }) {
+
+  const [edit, setEdit] = useState(false)
+
   return (
     <>
       {edit ? (
         <EditUserForm
-          item={item}
+          item={item} 
           index={index}
           users={users}
           setUsers={setUsers}
+          setEdit={setEdit}
         />
       ) : (
         <tr className="hover:bg-gray-100">
@@ -43,7 +47,7 @@ function UserItems({ item, index, setUsers, users, edit, setEdit }) {
               index={index}
               setUser={setUsers}
               user={users}
-              setEdit={setEdit}
+              setEdit={() => setEdit(true)}
             />
 
             <DeleteUser index={index} setUser={setUsers} user={users} />
