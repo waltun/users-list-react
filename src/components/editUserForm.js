@@ -1,20 +1,16 @@
-import React, { useState } from "react";
+import {useState} from "react";
 
-function EditUserForm({ item, index, users, setUsers }) {
+function EditUserForm({ item, index }) {
   const [user, setUser] = useState(item);
 
   const inputHandler = (event) => {
     let name = event.target.name;
     let value = event.target.value;
-
-    setUser({
-      ...user,
-      [name]: value,
-    });
+    setUser({...user, [name]: value});
   };
 
   const submitEdit = () => {
-    console.log("submited");
+    console.log(user)
   };
 
   return (
@@ -25,6 +21,7 @@ function EditUserForm({ item, index, users, setUsers }) {
       <td className="px-4 py-2 whitespace-nowrap text-center text-gray-700">
         <input
           type="text"
+          name="name"
           value={user.name}
           className="input text-xs"
           onChange={inputHandler}
@@ -33,7 +30,8 @@ function EditUserForm({ item, index, users, setUsers }) {
       <td className="px-4 py-2 whitespace-nowrap text-center text-gray-700">
         <input
           type="text"
-          value={item.email}
+          name="email"
+          value={user.email}
           className="input text-xs"
           onChange={inputHandler}
         />
@@ -41,7 +39,8 @@ function EditUserForm({ item, index, users, setUsers }) {
       <td className="px-4 py-2 whitespace-nowrap text-center text-gray-700">
         <input
           type="text"
-          value={item.phone}
+          name="phone"
+          value={user.phone}
           className="input text-xs"
           onChange={inputHandler}
         />
@@ -50,12 +49,13 @@ function EditUserForm({ item, index, users, setUsers }) {
         className="px-4 py-2 whitespace-nowrap text-center text-gray-700"
         dir="ltr"
       >
-        <p className="text-xs">{item.date}</p>
+        <p className="text-xs">{user.date}</p>
       </td>
       <td className="px-4 py-2 whitespace-nowrap text-center text-gray-700">
         <select
           className="input text-xs"
-          value={item.type}
+          name="type"
+          value={user.type}
           onChange={inputHandler}
         >
           <option value="normal">کاربر معمولی</option>
