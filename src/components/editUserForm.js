@@ -3,7 +3,7 @@ import React, { useState } from "react";
 function EditUserForm({ item, index, users, setUsers }) {
   const [user, setUser] = useState(item);
 
-  const inputHandler = (event) => {
+  const handleInputes = (event) => {
     let name = event.target.name;
     let value = event.target.value;
 
@@ -13,9 +13,7 @@ function EditUserForm({ item, index, users, setUsers }) {
     });
   };
 
-  const submitEdit = () => {
-    console.log("submited");
-  };
+  const handleSubmit = (event) => {};
 
   return (
     <tr className="hover:bg-gray-100">
@@ -27,43 +25,47 @@ function EditUserForm({ item, index, users, setUsers }) {
           type="text"
           value={user.name}
           className="input text-xs"
-          onChange={inputHandler}
+          onChange={handleInputes}
+          name="name"
         />
       </td>
       <td className="px-4 py-2 whitespace-nowrap text-center text-gray-700">
         <input
           type="text"
-          value={item.email}
+          value={user.email}
           className="input text-xs"
-          onChange={inputHandler}
+          onChange={handleInputes}
+          name="email"
         />
       </td>
       <td className="px-4 py-2 whitespace-nowrap text-center text-gray-700">
         <input
           type="text"
-          value={item.phone}
+          value={user.phone}
           className="input text-xs"
-          onChange={inputHandler}
+          onChange={handleInputes}
+          name="phone"
         />
       </td>
       <td
         className="px-4 py-2 whitespace-nowrap text-center text-gray-700"
         dir="ltr"
       >
-        <p className="text-xs">{item.date}</p>
+        <p className="text-xs">{user.date}</p>
       </td>
       <td className="px-4 py-2 whitespace-nowrap text-center text-gray-700">
         <select
           className="input text-xs"
-          value={item.type}
-          onChange={inputHandler}
+          value={user.type}
+          onChange={handleInputes}
+          name="type"
         >
           <option value="normal">کاربر معمولی</option>
           <option value="admin">کاربر ادمین</option>
         </select>
       </td>
       <td className="px-4 py-2 whitespace-nowrap space-x-2 space-x-reverse">
-        <button className="btn-success" onClick={submitEdit}>
+        <button className="btn-success" onClick={handleSubmit}>
           بروزرسانی
         </button>
       </td>
