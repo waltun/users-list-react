@@ -13,8 +13,8 @@ function EditUserForm({ item, index, setEdit }) {
     });
   };
 
-  const handleSubmit = (event) => {
-    alert('Edit Form')
+  const handleSubmit = () => {
+    console.log(user)
     setEdit(false)
   };
 
