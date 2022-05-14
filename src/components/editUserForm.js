@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function EditUserForm({ item, index, users, setUsers }) {
+function EditUserForm({ item, index, setEdit }) {
   const [user, setUser] = useState(item);
 
   const handleInputes = (event) => {
@@ -13,7 +13,10 @@ function EditUserForm({ item, index, users, setUsers }) {
     });
   };
 
-  const handleSubmit = (event) => {};
+  const handleSubmit = (event) => {
+    alert('Edit Form')
+    setEdit(false)
+  };
 
   return (
     <tr className="hover:bg-gray-100">
@@ -65,8 +68,11 @@ function EditUserForm({ item, index, users, setUsers }) {
         </select>
       </td>
       <td className="px-4 py-2 whitespace-nowrap space-x-2 space-x-reverse">
-        <button className="btn-success" onClick={handleSubmit}>
+        <button className="btn-success btn-sm" onClick={handleSubmit}>
           بروزرسانی
+        </button>
+        <button className="btn-cancel btn-sm" onClick={() => setEdit(false)}>
+          انصراف
         </button>
       </td>
     </tr>
