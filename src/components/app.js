@@ -12,7 +12,7 @@ function App() {
   return (
     <>
       <Header />
-      <div className="max-w-4xl mx-auto font-IRANSans">
+      <div className="container mx-auto sm:px-20 px-6 font-IRANSans">
         {/* Button for open modal add user */}
         <AddUser modal={setModal} />
 

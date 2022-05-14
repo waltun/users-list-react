@@ -7,6 +7,7 @@ function Modal({ modal, setModal, setUsers }) {
   const date = new Date().toLocaleDateString("fa-IR");
 
   const [user, setUser] = useState({
+    id:"",
     name: "",
     email: "",
     phone: "",
@@ -18,7 +19,7 @@ function Modal({ modal, setModal, setUsers }) {
     event.preventDefault();
 
     setUsers((prevState) => {
-      return [...prevState, user];
+      return [...prevState,{...user, id: Date.now()}];
     });
 
     setModal(false);

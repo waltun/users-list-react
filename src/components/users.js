@@ -11,11 +11,10 @@ function Users({ users, setUsers }) {
             <TableHeader />
           </thead>
           <tbody className="bg-white divide-y divide-gray-200">
-            {users.map((item, index) => (
+            {users.map((item) => (
               <UserItems
                 item={item}
-                key={index}
-                index={index}
+                key={item.id}
                 setUsers={setUsers}
                 users={users}
               />

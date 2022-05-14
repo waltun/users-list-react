@@ -3,7 +3,7 @@ import DeleteUser from "./deleteUser";
 import EditUser from "./editUser";
 import EditUserForm from "./editUserForm";
 
-function UserItems({ item, index, setUsers, users }) {
+function UserItems({ item, setUsers }) {
 
   const [edit, setEdit] = useState(false)
 
@@ -12,16 +12,11 @@ function UserItems({ item, index, setUsers, users }) {
       {edit ? (
         <EditUserForm
           item={item} 
-          index={index}
-          users={users}
           setUsers={setUsers}
           setEdit={setEdit}
         />
       ) : (
         <tr className="hover:bg-gray-100">
-          <td className="px-4 py-2 whitespace-nowrap text-center text-gray-700">
-            <p className="text-sm">{index + 1}</p>
-          </td>
           <td className="px-4 py-2 whitespace-nowrap text-center text-gray-700">
             <p className="text-sm">{item.name}</p>
           </td>
@@ -43,14 +38,9 @@ function UserItems({ item, index, setUsers, users }) {
             </p>
           </td>
           <td className="px-4 py-2 whitespace-nowrap space-x-2 space-x-reverse">
-            <EditUser
-              index={index}
-              setUser={setUsers}
-              user={users}
-              setEdit={() => setEdit(true)}
-            />
+            <EditUser setEdit={() => setEdit(true)} />
 
-            <DeleteUser index={index} setUser={setUsers} user={users} />
+            <DeleteUser setUsers={setUsers} id={item.id} />
           </td>
         </tr>
       )}

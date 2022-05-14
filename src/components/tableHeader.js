@@ -4,9 +4,6 @@ function TableHeader(props) {
   return (
     <tr>
       <th className="px-4 py-3 text-center text-sm text-gray-900 font-bold">
-        #
-      </th>
-      <th className="px-4 py-3 text-center text-sm text-gray-900 font-bold">
         نام
       </th>
       <th className="px-4 py-3 text-center text-sm text-gray-900 font-bold">

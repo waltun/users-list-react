@@ -1,16 +1,13 @@
 import React from "react";
 
-function DeleteUser({ index, user, setUser }) {
-  const handleDelete = (index) => {
-    setUser((prevState) => {
-      return prevState.filter((item) => user.indexOf(item) !== index);
-    });
-  };
+function DeleteUser({ setUsers, id }) {
+
+  const handleDelete = () => setUsers(prevState => prevState.filter(user => user.id !== id));
 
   return (
     <button
       className="btn-cancel"
-      onClick={() => handleDelete(index)}
+      onClick={() => handleDelete()}
     >
       حذف
     </button>

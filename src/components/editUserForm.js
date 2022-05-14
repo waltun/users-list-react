@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function EditUserForm({ item, index, setEdit }) {
+function EditUserForm({ item, setEdit, setUsers }) {
   const [user, setUser] = useState(item);
 
   const handleInputes = (event) => {
@@ -14,15 +14,12 @@ function EditUserForm({ item, index, setEdit }) {
   };
 
   const handleSubmit = () => {
-    console.log(user)
-    setEdit(false)
+    setUsers(prevState => prevState.map(u => u.id === item.id ? user : u))
+    setEdit(false);
   };
 
   return (
     <tr className="hover:bg-gray-100">
-      <td className="px-4 py-2 whitespace-nowrap text-center text-gray-700">
-        <p className="text-sm">{index + 1}</p>
-      </td>
       <td className="px-4 py-2 whitespace-nowrap text-center text-gray-700">
         <input
           type="text"
