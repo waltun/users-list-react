@@ -5,7 +5,6 @@ import EditUserForm from "./editUserForm";
 
 function UserItems({ item, index, setUsers, users }) {
 
-
   const [edit, setEdit] = useState(false);
 
   let tdTableClass = "px-4 py-2 whitespace-nowrap text-center text-gray-700 text-sm";
@@ -14,7 +13,7 @@ function UserItems({ item, index, setUsers, users }) {
     <>
       {edit ? (
         <EditUserForm
-          item={item} 
+          item={item}
           index={index}
           users={users}
           setUsers={setUsers}
