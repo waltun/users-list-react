@@ -1,21 +1,23 @@
 import React, { useState } from "react";
 
-function EditUserForm({ item, index, setEdit }) {
-  const [user, setUser] = useState(item);
+function EditUserForm({ item, index, users , setUsers , setEdit }) {
+  const [editedUser, setEditedUser] = useState(item);
 
-  const handleInputes = (event) => {
+  const handleInputs = (event) => {
     let name = event.target.name;
     let value = event.target.value;
 
-    setUser({
-      ...user,
+    setEditedUser({
+      ...editedUser,
       [name]: value,
     });
   };
 
-  const handleSubmit = (event) => {
-    alert('Edit Form')
-    setEdit(false)
+  const handleSubmit = () => {
+      let newUsersList = users.filter((user) => users.indexOf(user) !== index);
+      newUsersList.push(editedUser);
+      setUsers([...newUsersList])
+      setEdit(false);
   };
 
   return (
@@ -26,27 +28,27 @@ function EditUserForm({ item, index, setEdit }) {
       <td className="px-4 py-2 whitespace-nowrap text-center text-gray-700">
         <input
           type="text"
-          value={user.name}
+          value={editedUser.name}
           className="input text-xs"
-          onChange={handleInputes}
+          onChange={handleInputs}
           name="name"
         />
       </td>
       <td className="px-4 py-2 whitespace-nowrap text-center text-gray-700">
         <input
           type="text"
-          value={user.email}
+          value={editedUser.email}
           className="input text-xs"
-          onChange={handleInputes}
+          onChange={handleInputs}
           name="email"
         />
       </td>
       <td className="px-4 py-2 whitespace-nowrap text-center text-gray-700">
         <input
           type="text"
-          value={user.phone}
+          value={editedUser.phone}
           className="input text-xs"
-          onChange={handleInputes}
+          onChange={handleInputs}
           name="phone"
         />
       </td>
@@ -54,13 +56,13 @@ function EditUserForm({ item, index, setEdit }) {
         className="px-4 py-2 whitespace-nowrap text-center text-gray-700"
         dir="ltr"
       >
-        <p className="text-xs">{user.date}</p>
+        <p className="text-xs">{editedUser.date}</p>
       </td>
       <td className="px-4 py-2 whitespace-nowrap text-center text-gray-700">
         <select
           className="input text-xs"
-          value={user.type}
-          onChange={handleInputes}
+          value={editedUser.type}
+          onChange={handleInputs}
           name="type"
         >
           <option value="normal">کاربر معمولی</option>
