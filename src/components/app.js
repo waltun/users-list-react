@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState , useEffect } from "react";
 
 import Header from "./header";
 import AddUser from "./addUser";
@@ -7,7 +7,13 @@ import Users from "./users";
 
 function App() {
   const [modal, setModal] = useState(false);
-  const [users, setUsers] = useState([]);
+    const [users, setUsers] = useState(() => {
+        return "usersList" in localStorage ? [...JSON.parse(localStorage.usersList)] : [];
+    })
+
+    useEffect(() => {
+        localStorage.usersList = JSON.stringify(users)
+    } , [users])
 
   return (
     <>
