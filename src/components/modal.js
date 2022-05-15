@@ -2,19 +2,18 @@ import React, { Fragment, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { PlusIcon } from "@heroicons/react/outline";
 import UserForm from "./userForm";
+import moment from "moment-jalaali"
 
 function Modal({ modal, setModal, setUsers }) {
-  const date = new Date();
-  const year = date.getFullYear();
-  const month = date.getMonth() + 1;
-  const day = date.getDate();
+  // make date integers persian !
+  moment.loadPersian({usePersianDigits: true})
 
   const [user, setUser] = useState({
     name: "",
     email: "",
     phone: "",
     type: "normal",
-    date: year + " / " + month + " / " + day,
+    date: moment().format('jYYYY/jM/jD'),
   });
 
   const handleForm = (event) => {
