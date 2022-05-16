@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import TableHeader from "../layouts/tableHeader";
 import UserItems from "./userItems";
-import UsersContext from "../../context/users";
+import UsersContext from "../../context/usersContext";
 
 function Users() {
   const usersContext = useContext(UsersContext);

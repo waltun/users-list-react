@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import DeleteUser from "./deleteUser";
 import EditUser from "./editUser";
 import EditUserForm from "./editUserForm";
-import AuthContext from "../../context/auth";
+import AuthContext from "../../context/authContext";
 
 function UserItems({ item }) {
   const [edit, setEdit] = useState(false);

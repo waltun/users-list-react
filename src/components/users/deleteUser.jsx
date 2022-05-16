@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import UsersContext from "../../context/users";
+import UsersContext from "../../context/usersContext";
 import {sweetalert} from "../../helpers/helpers";
 
 function DeleteUser({ id }) {

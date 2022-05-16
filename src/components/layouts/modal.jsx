@@ -2,7 +2,7 @@ import React, { Fragment, useContext, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { PlusIcon } from "@heroicons/react/outline";
 import UserForm from "../users/userForm";
-import UsersContext from "../../context/users";
+import UsersContext from "../../context/usersContext";
 import validator from "validator";
 import {sweetalert} from "../../helpers/helpers";
 

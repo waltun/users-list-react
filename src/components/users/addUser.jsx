@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
-import UsersContext from "../../context/users";
-import AuthContext from "../../context/auth";
+import UsersContext from "../../context/usersContext";
+import AuthContext from "../../context/authContext";
 
 function AddUser() {
   const usersContext = useContext(UsersContext);
