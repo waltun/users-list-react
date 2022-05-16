@@ -4,7 +4,7 @@ import Header from "./layouts/header";
 import AddUser from "./users/addUser";
 import Modal from "./layouts/modal";
 import Users from "./users/users";
-import Main from "./layouts/Main";
+import Main from "./layouts/main";
 
 function App() {
   const [modal, setModal] = useState(false);
