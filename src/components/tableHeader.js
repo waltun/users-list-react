@@ -1,6 +1,6 @@
 import React from "react";
 
-function TableHeader(props) {
+function TableHeader() {
 
     let thTableClass = "px-4 py-3 text-center text-sm text-gray-900 font-bold"
   return (

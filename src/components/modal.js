@@ -1,13 +1,16 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useContext, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { PlusIcon } from "@heroicons/react/outline";
 import UserForm from "./userForm";
+import UsersContext from "../context/users";
 
-function Modal({ modal, setModal, setUsers }) {
+function Modal() {
+  const usersContext = useContext(UsersContext);
+
   const date = new Date().toLocaleDateString("fa-IR");
 
   const [user, setUser] = useState({
-    id:"",
+    id: "",
     name: "",
     email: "",
     phone: "",
@@ -18,20 +21,20 @@ function Modal({ modal, setModal, setUsers }) {
   const handleForm = (event) => {
     event.preventDefault();
 
-    setUsers((prevState) => {
-      return [...prevState,{...user, id: Date.now()}];
+    usersContext.setUsers((prevState) => {
+      return [...prevState, { ...user, id: Date.now() }];
     });
 
-    setModal(false);
+    usersContext.setModal(false);
   };
 
   return (
     <section>
-      <Transition.Root show={modal} as={Fragment}>
+      <Transition.Root show={usersContext.modal} as={Fragment}>
         <Dialog
           as="div"
           className="relative z-10 font-IRANSans"
-          onClose={setModal}
+          onClose={usersContext.setModal}
         >
           <Transition.Child
             as={Fragment}
@@ -90,14 +93,14 @@ function Modal({ modal, setModal, setUsers }) {
                       <button
                         type="submit"
                         className="btn-success py-2 w-full sm:w-auto"
-                        onClick={() => setModal(false)}
+                        onClick={() => usersContext.setModal(false)}
                       >
                         ثبت اطلاعات
                       </button>
                       <button
                         type="button"
                         className="btn-cancel py-2 w-full sm:w-auto"
-                        onClick={() => setModal(false)}
+                        onClick={() => usersContext.setModal(false)}
                       >
                         انصراف
                       </button>

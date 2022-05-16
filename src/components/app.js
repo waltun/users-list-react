@@ -1,41 +1,45 @@
-import React, { useState , useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 import Header from "./header";
 import AddUser from "./addUser";
 import Modal from "./modal";
 import Users from "./users";
+import UsersContext from "../context/users";
 
 function App() {
   const [modal, setModal] = useState(false);
-    const [users, setUsers] = useState(() => {
-        return "usersList" in localStorage ? [...JSON.parse(localStorage.usersList)] : [];
-    })
+  const [users, setUsers] = useState(() => {
+    return "usersList" in localStorage
+      ? [...JSON.parse(localStorage.usersList)]
+      : [];
+  });
 
-    useEffect(() => {
-        localStorage.usersList = JSON.stringify(users)
-    } , [users])
+  useEffect(() => {
+    localStorage.usersList = JSON.stringify(users);
+  }, [users]);
 
   return (
     <>
-      <Header />
-      <div className="container mx-auto sm:px-20 px-6 font-IRANSans">
-        {/* Button for open modal add user */}
-        <AddUser modal={setModal} />
+      <UsersContext.Provider
+        value={{
+          users,
+          modal,
+          setModal,
+          setUsers,
+        }}
+      >
+        <Header />
+        <div className="container mx-auto sm:px-20 px-6 font-IRANSans">
+          {/* Button for open modal add user */}
+          <AddUser />
 
-        {/* open modal (user form) */}
-        <Modal
-          modal={modal}
-          setModal={setModal}
-          users={users}
-          setUsers={setUsers}
-        />
+          {/* open modal (user form) */}
+          <Modal />
 
-        {/* users table (show users) */}
-        <Users
-          users={users}
-          setUsers={setUsers}
-        />
-      </div>
+          {/* users table (show users) */}
+          <Users />
+        </div>
+      </UsersContext.Provider>
     </>
   );
 }

@@ -1,22 +1,23 @@
-import React from "react";
+import React, { useContext } from "react";
 import TableHeader from "./tableHeader";
 import UserItems from "./userItems";
+import UsersContext from "../context/users";
 
-function Users({ users, setUsers }) {
+function Users() {
+  const usersContext = useContext(UsersContext);
+
   return (
     <main className="my-4">
-      {users.length ? (
+      {usersContext.users.length ? (
         <table className="min-w-full divide-y divide-gray-200">
           <thead className="bg-gray-50">
             <TableHeader />
           </thead>
           <tbody className="bg-white divide-y divide-gray-200">
-            {users.map((item) => (
+            {usersContext.users.map((item) => (
               <UserItems
                 item={item}
                 key={item.id}
-                setUsers={setUsers}
-                users={users}
               />
             ))}
           </tbody>

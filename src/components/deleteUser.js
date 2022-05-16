@@ -1,14 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
+import UsersContext from "../context/users";
 
-function DeleteUser({ setUsers, id }) {
+function DeleteUser({ id }) {
+  const usersContext = useContext(UsersContext);
 
-  const handleDelete = () => setUsers(prevState => prevState.filter(user => user.id !== id));
+  const handleDelete = () =>
+    usersContext.setUsers((prevState) =>
+      prevState.filter((user) => user.id !== id)
+    );
 
   return (
-    <button
-      className="btn-cancel"
-      onClick={() => handleDelete()}
-    >
+    <button className="btn-cancel" onClick={() => handleDelete()}>
       حذف
     </button>
   );

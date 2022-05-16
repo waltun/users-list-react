@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import UsersContext from "../context/users";
 
-function EditUserForm({ item, setEdit, setUsers }) {
+function EditUserForm({ item, setEdit }) {
+  const usersContext = useContext(UsersContext);
   const [user, setUser] = useState(item);
 
   const handleInputes = (event) => {
@@ -14,7 +16,9 @@ function EditUserForm({ item, setEdit, setUsers }) {
   };
 
   const handleSubmit = () => {
-    setUsers(prevState => prevState.map(u => u.id === item.id ? user : u))
+    usersContext.setUsers((prevState) =>
+      prevState.map((u) => (u.id === item.id ? user : u))
+    );
     setEdit(false);
   };
 
