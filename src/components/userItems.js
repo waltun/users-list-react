@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import DeleteUser from "./deleteUser";
 import EditUser from "./editUser";
 import EditUserForm from "./editUserForm";
+import AuthContext from "../context/auth";
 
 function UserItems({ item }) {
   const [edit, setEdit] = useState(false);
+  const authContext = useContext(AuthContext);
 
   let tdTableClass =
     "px-4 py-2 whitespace-nowrap text-center text-gray-700 text-sm";
@@ -23,8 +25,14 @@ function UserItems({ item }) {
             {item.type === "normal" ? "کاربر معمولی" : "کاربر ادمین"}{" "}
           </td>
           <td className="px-4 py-2 whitespace-nowrap space-x-2 space-x-reverse">
-            <EditUser setEdit={() => setEdit(true)} />
-            <DeleteUser id={item.id} />
+            {authContext.authenticated ? (
+              <>
+                <EditUser setEdit={() => setEdit(true)} />
+                <DeleteUser id={item.id} />
+              </>
+            ) : (
+              <p className="text-xs text-red-500 font-bold">برای حذف و ویرایش وارد شوید</p>
+            )}
           </td>
         </tr>
       )}

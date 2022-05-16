@@ -5,8 +5,10 @@ import AddUser from "./addUser";
 import Modal from "./modal";
 import Users from "./users";
 import UsersContext from "../context/users";
+import AuthContext from "../context/auth";
 
 function App() {
+  const [auth, setAuth] = useState(false);
   const [modal, setModal] = useState(false);
   const [users, setUsers] = useState(() => {
     return "usersList" in localStorage
@@ -20,26 +22,33 @@ function App() {
 
   return (
     <>
-      <UsersContext.Provider
+      <AuthContext.Provider
         value={{
-          users,
-          modal,
-          setModal,
-          setUsers,
+          authenticated: auth,
+          setAuth,
         }}
       >
-        <Header />
-        <div className="container mx-auto sm:px-20 px-6 font-IRANSans">
-          {/* Button for open modal add user */}
-          <AddUser />
+        <UsersContext.Provider
+          value={{
+            users,
+            modal,
+            setModal,
+            setUsers,
+          }}
+        >
+          <Header />
+          <div className="container mx-auto sm:px-20 px-6 font-IRANSans">
+            {/* Button for open modal add user */}
+            <AddUser />
 
-          {/* open modal (user form) */}
-          <Modal />
+            {/* open modal (user form) */}
+            <Modal />
 
-          {/* users table (show users) */}
-          <Users />
-        </div>
-      </UsersContext.Provider>
+            {/* users table (show users) */}
+            <Users />
+          </div>
+        </UsersContext.Provider>
+      </AuthContext.Provider>
     </>
   );
 }

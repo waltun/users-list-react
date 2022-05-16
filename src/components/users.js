@@ -7,10 +7,10 @@ function Users() {
   const usersContext = useContext(UsersContext);
 
   return (
-    <main className="my-4">
+    <main className="my-4 p-4 rounded-md border border-gray-200">
       {usersContext.users.length ? (
-        <table className="min-w-full divide-y divide-gray-200">
-          <thead className="bg-gray-50">
+        <table className="min-w-full divide-y divide-gray-200 border-b border-gray-300">
+          <thead className="bg-gray-100">
             <TableHeader />
           </thead>
           <tbody className="bg-white divide-y divide-gray-200">
