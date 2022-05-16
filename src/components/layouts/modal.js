@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { PlusIcon } from "@heroicons/react/outline";
-import UserForm from "./userForm";
+import UserForm from "../users/userForm";
 
 function Modal({ modal, setModal, setUsers }) {
   const date = new Date().toLocaleDateString("fa-IR");

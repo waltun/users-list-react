@@ -1,5 +1,5 @@
 import React from "react";
-import TableHeader from "./tableHeader";
+import TableHeader from "../layouts/tableHeader";
 import UserItems from "./userItems";
 
 function Users({ users, setUsers }) {

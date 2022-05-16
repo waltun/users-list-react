@@ -1,9 +1,9 @@
 import React, { useState , useEffect } from "react";
 
-import Header from "./header";
-import AddUser from "./addUser";
-import Modal from "./modal";
-import Users from "./users";
+import Header from "./layouts/header";
+import AddUser from "./users/addUser";
+import Modal from "./layouts/modal";
+import Users from "./users/users";
 
 function App() {
   const [modal, setModal] = useState(false);
