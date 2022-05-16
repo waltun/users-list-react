@@ -3,7 +3,6 @@ import { Dialog, Transition } from "@headlessui/react";
 import { PlusIcon } from "@heroicons/react/outline";
 import UserForm from "../users/userForm";
 import UsersContext from "../../context/users";
-import Swal from "sweetalert2";
 import validator from "validator";
 import {sweetalert} from "../../helpers/helpers";
 

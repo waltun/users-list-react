@@ -1,6 +1,5 @@
 import React, { useContext, useState } from "react";
 import UsersContext from "../../context/users";
-import Swal from "sweetalert2";
 import {sweetalert} from "../../helpers/helpers";
 
 function EditUserForm({ item, setEdit }) {
