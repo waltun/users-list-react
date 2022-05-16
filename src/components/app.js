@@ -4,6 +4,7 @@ import Header from "./layouts/header";
 import AddUser from "./users/addUser";
 import Modal from "./layouts/modal";
 import Users from "./users/users";
+import Main from "./layouts/Main";
 
 function App() {
   const [modal, setModal] = useState(false);
@@ -18,24 +19,8 @@ function App() {
   return (
     <>
       <Header />
-      <div className="container mx-auto sm:px-20 px-6 font-IRANSans">
-        {/* Button for open modal add user */}
-        <AddUser modal={setModal} />
 
-        {/* open modal (user form) */}
-        <Modal
-          modal={modal}
-          setModal={setModal}
-          users={users}
-          setUsers={setUsers}
-        />
-
-        {/* users table (show users) */}
-        <Users
-          users={users}
-          setUsers={setUsers}
-        />
-      </div>
+      <Main modal={modal} setModal={setModal} users={users} setUsers={setUsers}/>
     </>
   );
 }
