@@ -4,6 +4,7 @@ import { PlusIcon } from "@heroicons/react/outline";
 import UserForm from "./userForm";
 import UsersContext from "../context/users";
 import Swal from "sweetalert2";
+import validator from "validator";
 
 function Modal() {
   const usersContext = useContext(UsersContext);
@@ -19,23 +20,35 @@ function Modal() {
     date: date,
   });
 
+  const [error, setError] = useState(false);
+
   const handleForm = (event) => {
     event.preventDefault();
 
-    usersContext.setUsers((prevState) => {
-      return [...prevState, { ...user, id: Date.now() }];
-    });
+    if (
+      !validator.isEmpty(user.name) &&
+      !validator.isEmpty(user.email) &&
+      !validator.isEmpty(user.phone)
+    ) {
+      usersContext.setUsers((prevState) => {
+        return [...prevState, { ...user, id: Date.now() }];
+      });
 
-    usersContext.setModal(false);
+      usersContext.setModal(false);
+      setError(false);
 
-    //Sweet alert success alert
-    Swal.fire({
-      icon: "success",
-      title: "ثبت موفق",
-      text: "کاربر جدید با موفقیت ثبت شد",
-      customClass: "font-IRANSans",
-      timer: 2000,
-    });
+      //Sweet alert success alert
+      Swal.fire({
+        icon: "success",
+        title: "ثبت موفق",
+        text: "کاربر جدید با موفقیت ثبت شد",
+        customClass: "font-IRANSans",
+        timer: 2000,
+      });
+    } else {
+      usersContext.setModal(true);
+      setError(true);
+    }
   };
 
   return (
@@ -96,7 +109,7 @@ function Modal() {
                       </div>
                       <div className="mt-4">
                         {/* Show form to add user */}
-                        <UserForm setUser={setUser} user={user} />
+                        <UserForm setUser={setUser} user={user} error={error} />
                       </div>
                     </div>
                     <div className="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse space-x-2 space-y-2 sm:space-y-0">
