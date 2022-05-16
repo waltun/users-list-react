@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 import UsersContext from "../context/users";
+import Swal from "sweetalert2";
 
 function EditUserForm({ item, setEdit }) {
   const usersContext = useContext(UsersContext);
@@ -19,7 +20,17 @@ function EditUserForm({ item, setEdit }) {
     usersContext.setUsers((prevState) =>
       prevState.map((u) => (u.id === item.id ? user : u))
     );
+
     setEdit(false);
+
+    //Sweet alert success alert
+    Swal.fire({
+      icon: "success",
+      title: "ویرایش موفق",
+      text: "کاربر مورد نظر با موفقیت ویرایش شد",
+      customClass: "font-IRANSans",
+      timer: 2000,
+    });
   };
 
   return (

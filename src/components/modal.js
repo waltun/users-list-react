@@ -3,6 +3,7 @@ import { Dialog, Transition } from "@headlessui/react";
 import { PlusIcon } from "@heroicons/react/outline";
 import UserForm from "./userForm";
 import UsersContext from "../context/users";
+import Swal from "sweetalert2";
 
 function Modal() {
   const usersContext = useContext(UsersContext);
@@ -26,6 +27,15 @@ function Modal() {
     });
 
     usersContext.setModal(false);
+
+    //Sweet alert success alert
+    Swal.fire({
+      icon: "success",
+      title: "ثبت موفق",
+      text: "کاربر جدید با موفقیت ثبت شد",
+      customClass: "font-IRANSans",
+      timer: 2000,
+    });
   };
 
   return (
