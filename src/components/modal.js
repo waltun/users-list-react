@@ -4,7 +4,7 @@ import { PlusIcon } from "@heroicons/react/outline";
 import UserForm from "./userForm";
 
 function Modal({ modal, setModal, setUsers }) {
-  const date = new Date().toLocaleDateString("fa-IR");
+  
 
   const [user, setUser] = useState({
     id:"",
@@ -12,17 +12,19 @@ function Modal({ modal, setModal, setUsers }) {
     email: "",
     phone: "",
     type: "normal",
-    date: date,
+    date: null,
   });
 
   const handleForm = (event) => {
+    //there is an issue with user state, it will not become empty on submit
     event.preventDefault();
-
     setUsers((prevState) => {
-      return [...prevState,{...user, id: Date.now()}];
+      return [...prevState,{...user, id: Date.now(), date: new Date().toLocaleDateString("fa-IR") }];
+      //date defines on submit because at the end of the function all of state will be empty
     });
 
     setModal(false);
+    setUser('');//user state will become empty so, if a new user added and some fields left empty it will not use previous user data
   };
 
   return (

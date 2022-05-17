@@ -2,10 +2,8 @@ import React from "react";
 
 function UserForm({ user, setUser }) {
   const handleInputs = (event) => {
-    let name = event.target.name;
-    let value = event.target.value;
-
-    setUser({ ...user, [name]: value });
+    let [name, value] = [event.target.name, event.target.value];
+    setUser(prevState=>{ return{...prevState, [name]: value} });
   };
 
   return (
