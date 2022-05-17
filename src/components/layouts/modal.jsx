@@ -1,10 +1,10 @@
 import React, { Fragment, useContext, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { PlusIcon } from "@heroicons/react/outline";
-import UserForm from "./userForm";
-import UsersContext from "../context/users";
-import Swal from "sweetalert2";
+import UserForm from "../users/userForm";
+import UsersContext from "../../context/usersContext";
 import validator from "validator";
+import {sweetalert} from "../../helpers/helpers";
 
 function Modal() {
   const usersContext = useContext(UsersContext);
@@ -38,13 +38,7 @@ function Modal() {
       setError(false);
 
       //Sweet alert success alert
-      Swal.fire({
-        icon: "success",
-        title: "ثبت موفق",
-        text: "کاربر جدید با موفقیت ثبت شد",
-        customClass: "font-IRANSans",
-        timer: 2000,
-      });
+      sweetalert("ثبت موفق", "کاربر جدید با موفقیت ثبت شد");
     } else {
       usersContext.setModal(true);
       setError(true);

@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
-import UsersContext from "../context/users";
-import Swal from "sweetalert2";
+import UsersContext from "../../context/usersContext";
+import {sweetalert} from "../../helpers/helpers";
 
 function DeleteUser({ id }) {
   const usersContext = useContext(UsersContext);
@@ -11,13 +11,7 @@ function DeleteUser({ id }) {
     );
 
     //Sweet alert success alert
-    Swal.fire({
-      icon: "success",
-      title: "حذف موفق",
-      text: "کاربر مورد نظر با موفقیت حذف شد",
-      customClass: "font-IRANSans",
-      timer: 2000,
-    });
+    sweetalert("حذف موفق", "کاربر مورد نظر با موفقیت حذف شد");
   };
 
   return (

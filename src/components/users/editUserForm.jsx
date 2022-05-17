@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
-import UsersContext from "../context/users";
-import Swal from "sweetalert2";
+import UsersContext from "../../context/usersContext";
+import {sweetalert} from "../../helpers/helpers";
 
 function EditUserForm({ item, setEdit }) {
   const usersContext = useContext(UsersContext);
@@ -24,13 +24,7 @@ function EditUserForm({ item, setEdit }) {
     setEdit(false);
 
     //Sweet alert success alert
-    Swal.fire({
-      icon: "success",
-      title: "ویرایش موفق",
-      text: "کاربر مورد نظر با موفقیت ویرایش شد",
-      customClass: "font-IRANSans",
-      timer: 2000,
-    });
+    sweetalert("ویرایش موفق", "کاربر مورد نظر با موفقیت ویرایش شد");
   };
 
   return (
