@@ -14,10 +14,6 @@ function App() {
       : [];
   });
 
-  useEffect(() => {
-    localStorage.usersList = JSON.stringify(users);
-  }, [users]);
-
   return (
     <>
       <AuthContext.Provider
