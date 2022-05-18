@@ -4,7 +4,8 @@ import { PlusIcon } from "@heroicons/react/outline";
 import UserForm from "../users/userForm";
 import UsersContext from "../../context/usersContext";
 import validator from "validator";
-import {sweetalert} from "../../helpers/helpers";
+import { sweetalert } from "../../helpers/helpers";
+import axios from "axios";
 
 function Modal() {
   const usersContext = useContext(UsersContext);
@@ -33,6 +34,15 @@ function Modal() {
       usersContext.setUsers((prevState) => {
         return [...prevState, { ...user, id: Date.now() }];
       });
+
+      //Send Http request (Store users)
+      axios
+        .post("https://6283d9436b6c317d5ba74d17.endapi.io/users", {
+          ...user,
+          id: Date.now(),
+        })
+        .then((response) => console.log(response.data))
+        .catch((error) => console.log(error));
 
       usersContext.setModal(false);
       setError(false);
