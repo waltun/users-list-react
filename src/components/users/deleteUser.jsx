@@ -11,14 +11,14 @@ function DeleteUser({ id }) {
   const usersContext = useContext(UsersContext);
 
   const handleDelete = () => {
-    usersContext.setUsers((prevState) =>
-      prevState.filter((user) => user.id !== id)
-    );
-
     //Delete Http request (Delete users)
     axios
       .delete(`https://6283d9436b6c317d5ba74d17.endapi.io/users/${id}`)
-      .then((response) => console.log(response))
+      .then((response) =>
+        usersContext.setUsers((prevState) =>
+          prevState.filter((user) => user.id !== id)
+        )
+      )
       .catch((error) => console.log(error));
 
     //Sweet alert success alert
