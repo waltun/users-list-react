@@ -1,4 +1,6 @@
 import React, { useContext } from "react";
+
+// import Contexts
 import UsersContext from "../../context/usersContext";
 import AuthContext from "../../context/authContext";
 

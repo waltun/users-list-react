@@ -1,7 +1,11 @@
-import axios from "axios";
 import React, { useContext, useState } from "react";
+
+// import Contexts
 import UsersContext from "../../context/usersContext";
+
+// import Packages
 import { sweetalert } from "../../helpers/helpers";
+import axios from "axios";
 
 function EditUserForm({ item, setEdit }) {
   const usersContext = useContext(UsersContext);
@@ -18,7 +22,7 @@ function EditUserForm({ item, setEdit }) {
   };
 
   const handleSubmit = () => {
-    //Delete Http request (Delete users)
+    //Edit Http request (Edit user)
     axios
       .put(`https://6283d9436b6c317d5ba74d17.endapi.io/users/${item.id}`, {
         ...user,

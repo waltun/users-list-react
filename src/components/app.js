@@ -1,9 +1,14 @@
 import React, { useState, useEffect } from "react";
 
+// import Components
 import Header from "./layouts/header";
+import Main from "./layouts/main";
+
+// import Contexts
 import UsersContext from "../context/usersContext";
 import AuthContext from "../context/authContext";
-import Main from "./layouts/main";
+
+// import Packages
 import axios from "axios";
 
 function App() {

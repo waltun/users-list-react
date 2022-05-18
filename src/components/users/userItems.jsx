@@ -1,7 +1,11 @@
 import React, { useContext, useState } from "react";
+
+// import Components
 import DeleteUser from "./deleteUser";
 import EditUser from "./editUser";
 import EditUserForm from "./editUserForm";
+
+// import Contexts
 import AuthContext from "../../context/authContext";
 
 function UserItems({ item }) {
@@ -31,7 +35,9 @@ function UserItems({ item }) {
                 <DeleteUser id={item.id} />
               </>
             ) : (
-              <p className="text-xs text-red-500 font-bold">برای حذف و ویرایش وارد شوید</p>
+              <p className="text-xs text-red-500 font-bold">
+                برای حذف و ویرایش وارد شوید
+              </p>
             )}
           </td>
         </tr>

@@ -1,6 +1,10 @@
 import React, { useContext } from "react";
+
+// import Components
 import TableHeader from "../layouts/tableHeader";
 import UserItems from "./userItems";
+
+// import Contexts
 import UsersContext from "../../context/usersContext";
 
 function Users() {
@@ -15,10 +19,7 @@ function Users() {
           </thead>
           <tbody className="bg-white divide-y divide-gray-200">
             {usersContext.users.map((item) => (
-              <UserItems
-                item={item}
-                key={item.id}
-              />
+              <UserItems item={item} key={item.id} />
             ))}
           </tbody>
         </table>

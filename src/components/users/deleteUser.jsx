@@ -1,7 +1,11 @@
-import axios from "axios";
 import React, { useContext } from "react";
+
+// import Contexts
 import UsersContext from "../../context/usersContext";
+
+// import Packages
 import { sweetalert } from "../../helpers/helpers";
+import axios from "axios";
 
 function DeleteUser({ id }) {
   const usersContext = useContext(UsersContext);

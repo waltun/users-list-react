@@ -1,4 +1,6 @@
 import React, { useContext } from "react";
+
+// import Contexts
 import AuthContext from "../../context/authContext";
 
 function Header() {

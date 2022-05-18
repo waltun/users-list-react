@@ -1,10 +1,16 @@
 import React, { Fragment, useContext, useState } from "react";
+
+// import Components
+import UserForm from "../users/userForm";
+
+// import Contexts
+import UsersContext from "../../context/usersContext";
+
+// import Packages
+import { sweetalert } from "../../helpers/helpers";
+import validator from "validator";
 import { Dialog, Transition } from "@headlessui/react";
 import { PlusIcon } from "@heroicons/react/outline";
-import UserForm from "../users/userForm";
-import UsersContext from "../../context/usersContext";
-import validator from "validator";
-import { sweetalert } from "../../helpers/helpers";
 import axios from "axios";
 
 function Modal() {
