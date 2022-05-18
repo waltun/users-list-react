@@ -1,6 +1,7 @@
+import axios from "axios";
 import React, { useContext, useState } from "react";
 import UsersContext from "../../context/usersContext";
-import {sweetalert} from "../../helpers/helpers";
+import { sweetalert } from "../../helpers/helpers";
 
 function EditUserForm({ item, setEdit }) {
   const usersContext = useContext(UsersContext);
@@ -17,9 +18,17 @@ function EditUserForm({ item, setEdit }) {
   };
 
   const handleSubmit = () => {
-    usersContext.setUsers((prevState) =>
-      prevState.map((u) => (u.id === item.id ? user : u))
-    );
+    //Delete Http request (Delete users)
+    axios
+      .put(`https://6283d9436b6c317d5ba74d17.endapi.io/users/${item.id}`, {
+        ...user,
+      })
+      .then((response) =>
+        usersContext.setUsers((prevState) =>
+          prevState.map((u) => (u.id === item.id ? user : u))
+        )
+      )
+      .catch((error) => console.log(error));
 
     setEdit(false);
 
